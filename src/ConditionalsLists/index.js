@@ -5,9 +5,9 @@ import Person from "./Person/Person";
 class ConditionalLists extends Component {
   state = {
     persons: [
-      { name: "Max", age: 28 },
-      { name: "Manu", age: 29 },
-      { name: "Steve", age: 26 }
+      { id: "weho2", name: "Max", age: 28 },
+      { id: "wehsdo2", name: "Manu", age: 29 },
+      { id: "wehsdwo2", name: "Steve", age: 26 }
     ],
     showPersons: false
   };
@@ -16,13 +16,18 @@ class ConditionalLists extends Component {
     this.setState({ showPersons: !this.state.showPersons });
   };
 
-  nameChangeHandler = event => {
+  nameChangeHandler = (event, id) => {
+    const personIndex = this.state.persons.findIndex(p => p.id === id);
+
+    const person = { ...this.state.persons[personIndex] };
+
+    person.name = event.target.value;
+
+    const persons = [...this.state.persons];
+    persons[personIndex] = person;
+
     this.setState({
-      persons: [
-        { name: "Max", age: 28 },
-        { name: event.target.value, age: 29 },
-        { name: "Steve", age: 26 }
-      ]
+      persons: persons
     });
   };
 
@@ -48,10 +53,11 @@ class ConditionalLists extends Component {
         <div>
           {this.state.persons.map((person, index) => (
             <Person
-              key={person.name}
+              key={index}
               name={person.name}
               age={person.age}
               click={() => this.deletePersonHandler(index)}
+              changed={event => this.nameChangeHandler(event, person.id)}
             />
           ))}
         </div>
