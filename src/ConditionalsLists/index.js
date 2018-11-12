@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 
-import "../App.css";
+import classes from "../App.css";
 import Person from "./Person/Person";
 
 class ConditionalLists extends Component {
@@ -66,18 +66,18 @@ class ConditionalLists extends Component {
       style.backgroundColor = "red";
     }
 
-    const classes = [];
+    const toggleClasses = [];
     if (this.state.persons.length <= 2) {
-      classes.push("red");
+      toggleClasses.push(classes.red);
     }
 
     if (this.state.persons.length <= 1) {
-      classes.push("bold");
+      toggleClasses.push(classes.bold);
     }
 
     return (
-      <div className="App">
-        <p className={classes.join(" ")}>This is Magic Stuff</p>
+      <div className={classes.App}>
+        <p className={toggleClasses.join(" ")}>This is Magic Stuff</p>
         <button style={style} onClick={this.togglePersonsHandler}>
           {this.state.showPersons ? "Hide Persons" : "Show Persons"}
         </button>
