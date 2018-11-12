@@ -12,16 +12,6 @@ class ConditionalLists extends Component {
     showPersons: false
   };
 
-  switchNameHandler = newName => {
-    this.setState({
-      persons: [
-        { name: newName, age: 28 },
-        { name: "Manu", age: 29 },
-        { name: "Steve", age: 26 }
-      ]
-    });
-  };
-
   togglePersonsHandler = () => {
     this.setState({ showPersons: !this.state.showPersons });
   };
@@ -34,6 +24,11 @@ class ConditionalLists extends Component {
         { name: "Steve", age: 26 }
       ]
     });
+  };
+
+  deletePersonHandler = personIndex => {
+    this.state.persons.splice(personIndex, 1);
+    this.setState({ persons: this.state.persons });
   };
 
   render() {
@@ -66,8 +61,13 @@ class ConditionalLists extends Component {
             name={this.state.persons[2].name}
             age={this.state.persons[2].age}
           /> */}
-          {this.state.persons.map(person => (
-            <Person key={person.name} name={person.name} age={person.age} />
+          {this.state.persons.map((person, index) => (
+            <Person
+              key={person.name}
+              name={person.name}
+              age={person.age}
+              onClick={() => this.deletePersonHandler(index)}
+            />
           ))}
         </div>
       );
