@@ -48,9 +48,9 @@ class ConditionalLists extends Component {
     return (
       <div className="App">
         <button style={style} onClick={this.togglePersonsHandler}>
-          {this.state.showPersons === true ? "Hide Persons" : "Show Persons"}
+          {this.state.showPersons ? "Hide Persons" : "Show Persons"}
         </button>
-        {this.state.showPersons === true ? (
+        {this.state.showPersons ? (
           <div>
             <Person
               name={this.state.persons[0].name}
