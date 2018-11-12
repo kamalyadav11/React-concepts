@@ -38,15 +38,6 @@ class ConditionalLists extends Component {
   };
 
   render() {
-    const style = {
-      backgroundColor: "green",
-      color: "white",
-      font: "inherit",
-      border: "1px solid blue",
-      padding: "8px",
-      cursor: "pointer"
-    };
-
     let persons = null;
 
     if (this.state.showPersons) {
@@ -63,7 +54,6 @@ class ConditionalLists extends Component {
           ))}
         </div>
       );
-      style.backgroundColor = "red";
     }
 
     const toggleClasses = [];
@@ -78,7 +68,7 @@ class ConditionalLists extends Component {
     return (
       <div className={classes.App}>
         <p className={toggleClasses.join(" ")}>This is Magic Stuff</p>
-        <button style={style} onClick={this.togglePersonsHandler}>
+        <button onClick={this.togglePersonsHandler}>
           {this.state.showPersons ? "Hide Persons" : "Show Persons"}
         </button>
         {persons}
