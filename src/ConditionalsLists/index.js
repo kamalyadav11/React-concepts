@@ -50,7 +50,7 @@ class ConditionalLists extends Component {
               key={person.name}
               name={person.name}
               age={person.age}
-              onClick={() => this.deletePersonHandler(index)}
+              click={() => this.deletePersonHandler(index)}
             />
           ))}
         </div>
