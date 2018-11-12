@@ -1,4 +1,6 @@
 import React, { Component } from "react";
+import Radium from "radium";
+
 import "../App.css";
 import Person from "./Person/Person";
 
@@ -43,7 +45,11 @@ class ConditionalLists extends Component {
       font: "inherit",
       border: "1px solid blue",
       padding: "8px",
-      cursor: "pointer"
+      cursor: "pointer",
+      ":hover": {
+        backgroundColor: "lightgreen",
+        color: "black"
+      }
     };
 
     let persons = null;
@@ -63,6 +69,10 @@ class ConditionalLists extends Component {
         </div>
       );
       style.backgroundColor = "red";
+      style[":hover"] = {
+        backgroundColor: "salmon",
+        color: "black"
+      };
     }
 
     const classes = [];
@@ -86,4 +96,4 @@ class ConditionalLists extends Component {
   }
 }
 
-export default ConditionalLists;
+export default Radium(ConditionalLists);
