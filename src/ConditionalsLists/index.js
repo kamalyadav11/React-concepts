@@ -18,7 +18,6 @@ class ConditionalLists extends Component {
 
   nameChangeHandler = (event, id) => {
     const personIndex = this.state.persons.findIndex(p => p.id === id);
-
     const person = { ...this.state.persons[personIndex] };
 
     person.name = event.target.value;
@@ -39,7 +38,8 @@ class ConditionalLists extends Component {
 
   render() {
     const style = {
-      backgroundColor: "white",
+      backgroundColor: "green",
+      color: "white",
       font: "inherit",
       border: "1px solid blue",
       padding: "8px",
@@ -62,10 +62,21 @@ class ConditionalLists extends Component {
           ))}
         </div>
       );
+      style.backgroundColor = "red";
+    }
+
+    const classes = [];
+    if (this.state.persons.length <= 2) {
+      classes.push("red");
+    }
+
+    if (this.state.persons.length <= 1) {
+      classes.push("bold");
     }
 
     return (
       <div className="App">
+        <p className={classes.join(" ")}>This is Magic Stuff</p>
         <button style={style} onClick={this.togglePersonsHandler}>
           {this.state.showPersons ? "Hide Persons" : "Show Persons"}
         </button>
