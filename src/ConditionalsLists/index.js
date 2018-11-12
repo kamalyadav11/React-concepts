@@ -27,8 +27,9 @@ class ConditionalLists extends Component {
   };
 
   deletePersonHandler = personIndex => {
-    this.state.persons.splice(personIndex, 1);
-    this.setState({ persons: this.state.persons });
+    const persons = [...this.state.persons];
+    persons.splice(personIndex, 1);
+    this.setState({ persons: persons });
   };
 
   render() {
