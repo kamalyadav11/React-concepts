@@ -39,6 +39,7 @@ class ConditionalLists extends Component {
 
   render() {
     let persons = null;
+    let btnClass = "";
 
     if (this.state.showPersons) {
       persons = (
@@ -54,6 +55,7 @@ class ConditionalLists extends Component {
           ))}
         </div>
       );
+      btnClass = classes.Red;
     }
 
     const toggleClasses = [];
@@ -68,7 +70,7 @@ class ConditionalLists extends Component {
     return (
       <div className={classes.App}>
         <p className={toggleClasses.join(" ")}>This is Magic Stuff</p>
-        <button onClick={this.togglePersonsHandler}>
+        <button className={btnClass} onClick={this.togglePersonsHandler}>
           {this.state.showPersons ? "Hide Persons" : "Show Persons"}
         </button>
         {persons}
