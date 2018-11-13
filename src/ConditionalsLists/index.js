@@ -13,7 +13,8 @@ class ConditionalLists extends Component {
       { id: "wehsdo2", name: "Manu", age: 29 },
       { id: "wehsdwo2", name: "Steve", age: 26 }
     ],
-    showPersons: false
+    showPersons: false,
+    count: 0
   };
 
   componentDidMount() {
@@ -46,7 +47,13 @@ class ConditionalLists extends Component {
   }
 
   togglePersonsHandler = () => {
-    this.setState({ showPersons: !this.state.showPersons });
+    const doesShow = this.state.showPersons;
+    this.setState(prevState => {
+      return {
+        showPersons: !doesShow,
+        count: prevState.count + 1
+      };
+    });
   };
 
   nameChangeHandler = (event, id) => {
@@ -104,6 +111,7 @@ class ConditionalLists extends Component {
           btnClass={btnClass}
           toggleClasses={toggleClasses}
         />
+        {this.state.count}
         {persons}
       </Aux>
     );
