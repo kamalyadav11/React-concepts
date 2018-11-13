@@ -60,7 +60,7 @@ class ConditionalLists extends Component {
 
     const toggleClasses = [];
     if (this.state.persons.length <= 2) {
-      toggleClasses.push(classes.red);
+      toggleClasses.push(classes.Red);
     }
 
     if (this.state.persons.length <= 1) {
