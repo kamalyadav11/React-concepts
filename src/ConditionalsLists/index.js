@@ -3,6 +3,8 @@ import React, { Component } from "react";
 import classes from "../App.css";
 import Persons from "./components/Persons/Persons";
 import Cockpit from "./components/Cockpit/Cockpit";
+import withClass from "../hoc/withClass";
+import Aux from "../hoc/Aux";
 
 class ConditionalLists extends Component {
   state = {
@@ -95,7 +97,7 @@ class ConditionalLists extends Component {
     }
 
     return (
-      <div className={classes.App}>
+      <Aux>
         <Cockpit
           togglePersonsHandler={this.togglePersonsHandler}
           showPersons={this.state.showPersons}
@@ -103,9 +105,9 @@ class ConditionalLists extends Component {
           toggleClasses={toggleClasses}
         />
         {persons}
-      </div>
+      </Aux>
     );
   }
 }
 
-export default ConditionalLists;
+export default withClass(ConditionalLists, classes.App);
