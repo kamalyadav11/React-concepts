@@ -17,35 +17,6 @@ class ConditionalLists extends Component {
     count: 0
   };
 
-  componentDidMount() {
-    console.log("I mounted(did)");
-  }
-
-  componentWillMount() {
-    console.log("I mounted(will)");
-  }
-
-  componentWillUpdate() {
-    console.log("I updated(will)");
-  }
-
-  componentDidUpdate() {
-    console.log("I updated(did)");
-  }
-
-  componentWillReceiveProps() {
-    console.log("recieve props");
-  }
-
-  shouldComponentUpdate(nextProps, nextState) {
-    console.log("should?", nextProps, nextState);
-    return nextState.persons !== this.state.showPersons;
-  }
-
-  componentWillUnmount() {
-    console.log("unmounted");
-  }
-
   togglePersonsHandler = () => {
     const doesShow = this.state.showPersons;
     this.setState(prevState => {
@@ -77,7 +48,6 @@ class ConditionalLists extends Component {
   };
 
   render() {
-    console.log("I am in render");
     let persons = null;
     let btnClass = "";
 
