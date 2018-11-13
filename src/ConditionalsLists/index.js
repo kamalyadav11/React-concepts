@@ -36,7 +36,7 @@ class ConditionalLists extends Component {
 
   shouldComponentUpdate(nextProps, nextState) {
     console.log("should?", nextProps, nextState);
-    return nextState !== this.props.showPersons;
+    return nextState.persons !== this.state.showPersons;
   }
 
   componentWillUnmount() {
