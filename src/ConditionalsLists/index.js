@@ -14,34 +14,34 @@ class ConditionalLists extends Component {
     showPersons: false
   };
 
-  // componentDidMount() {
-  //   console.log("I mounted(did)");
-  // }
+  componentDidMount() {
+    console.log("I mounted(did)");
+  }
 
-  // componentWillMount() {
-  //   console.log("I mounted(will)");
-  // }
+  componentWillMount() {
+    console.log("I mounted(will)");
+  }
 
-  // componentWillUpdate() {
-  //   console.log("I updated(will)");
-  // }
+  componentWillUpdate() {
+    console.log("I updated(will)");
+  }
 
-  // componentDidUpdate() {
-  //   console.log("I updated(did)");
-  // }
+  componentDidUpdate() {
+    console.log("I updated(did)");
+  }
 
-  // componentWillReceiveProps() {
-  //   console.log("recieve props");
-  // }
+  componentWillReceiveProps() {
+    console.log("recieve props");
+  }
 
-  // shouldComponentUpdate() {
-  //   console.log("should?");
-  //   return true;
-  // }
+  shouldComponentUpdate(nextProps, nextState) {
+    console.log("should?", nextProps, nextState);
+    return nextState !== this.props.showPersons;
+  }
 
-  // componentWillUnmount() {
-  //   console.log("unmounted");
-  // }
+  componentWillUnmount() {
+    console.log("unmounted");
+  }
 
   togglePersonsHandler = () => {
     this.setState({ showPersons: !this.state.showPersons });
