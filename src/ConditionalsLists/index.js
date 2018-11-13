@@ -2,6 +2,7 @@ import React, { Component } from "react";
 
 import classes from "../App.css";
 import Persons from "./components/Persons/Persons";
+import Cockpit from "./components/Cockpit/Cockpit";
 
 class ConditionalLists extends Component {
   state = {
@@ -65,10 +66,12 @@ class ConditionalLists extends Component {
 
     return (
       <div className={classes.App}>
-        <p className={toggleClasses.join(" ")}>This is Magic Stuff</p>
-        <button className={btnClass} onClick={this.togglePersonsHandler}>
-          {this.state.showPersons ? "Hide Persons" : "Show Persons"}
-        </button>
+        <Cockpit
+          togglePersonsHandler={this.togglePersonsHandler}
+          showPersons={this.state.showPersons}
+          btnClass={btnClass}
+          toggleClasses={toggleClasses}
+        />
         {persons}
       </div>
     );
