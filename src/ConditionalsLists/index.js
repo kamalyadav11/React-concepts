@@ -19,7 +19,7 @@ class ConditionalLists extends Component {
 
   nameChangeHandler = (event, id) => {
     const personIndex = this.state.persons.findIndex(p => p.id === id);
-    const person = { ...this.state.persons[personIndex] };
+    const person = { ...this.state.persons[personIndex] }; // so that the state don't mutate
 
     person.name = event.target.value;
 
