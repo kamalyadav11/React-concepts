@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 
 import classes from "../App.css";
-import Person from "./components/Persons/Person/Person";
+import Persons from "./components/Persons/Persons";
 
 class ConditionalLists extends Component {
   state = {
@@ -44,15 +44,11 @@ class ConditionalLists extends Component {
     if (this.state.showPersons) {
       persons = (
         <div>
-          {this.state.persons.map((person, index) => (
-            <Person
-              key={index}
-              name={person.name}
-              age={person.age}
-              click={() => this.deletePersonHandler(index)}
-              changed={event => this.nameChangeHandler(event, person.id)}
-            />
-          ))}
+          <Persons
+            persons={this.state.persons}
+            click={this.deletePersonHandler}
+            changed={this.nameChangeHandler}
+          />
         </div>
       );
       btnClass = classes.Red;
