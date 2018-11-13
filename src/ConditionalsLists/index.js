@@ -14,6 +14,35 @@ class ConditionalLists extends Component {
     showPersons: false
   };
 
+  // componentDidMount() {
+  //   console.log("I mounted(did)");
+  // }
+
+  // componentWillMount() {
+  //   console.log("I mounted(will)");
+  // }
+
+  // componentWillUpdate() {
+  //   console.log("I updated(will)");
+  // }
+
+  // componentDidUpdate() {
+  //   console.log("I updated(did)");
+  // }
+
+  // componentWillReceiveProps() {
+  //   console.log("recieve props");
+  // }
+
+  // shouldComponentUpdate() {
+  //   console.log("should?");
+  //   return true;
+  // }
+
+  // componentWillUnmount() {
+  //   console.log("unmounted");
+  // }
+
   togglePersonsHandler = () => {
     this.setState({ showPersons: !this.state.showPersons });
   };
@@ -39,6 +68,7 @@ class ConditionalLists extends Component {
   };
 
   render() {
+    console.log("I am in render");
     let persons = null;
     let btnClass = "";
 
